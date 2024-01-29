@@ -50,7 +50,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private void bindImageAnalysis(@NonNull ProcessCameraProvider cameraProvider) {
         ImageAnalysis imageAnalysis =
-                new ImageAnalysis.Builder().setTargetResolution(new Size(1280, 720))
+                new ImageAnalysis.Builder().setTargetResolution(new Size(300, 300))
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build();
         imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this), new ImageAnalysis.Analyzer() {
             @Override
@@ -72,4 +72,5 @@ public class CameraActivity extends AppCompatActivity {
         cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector,
                 imageAnalysis, preview);
     }
+
 }
